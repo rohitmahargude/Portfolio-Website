@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-space-blue: rgba(10, 20, 40, 0.2);
+  --color-cosmic-purple: #6A4C93;
+  --color-neon-cyan: #00D9FF;
+  --color-stellar-white: #E8F0FF;
+  --color-space-black: rgba(0, 0, 0, 0.3);
+  --color-nebula-pink: #FF1493;
+  --color-aurora-green: #10B981;
+  --color-stellar-gold: #FFD700;
+
+  --color-cyan-glow: rgba(0, 217, 255, 0.3);
+  --color-purple-glow: rgba(106, 76, 147, 0.3);
+  --color-pink-glow: rgba(255, 20, 147, 0.3);
+  --color-gold-glow: rgba(255, 215, 0, 0.2);
+  --color-green-glow: rgba(16, 185, 129, 0.2);
+}
+
+:root {
+  background-color: #050a15;
+  color: var(--color-stellar-white);
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: transparent;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@keyframes slowFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float-slow {
+  animation: slowFloat 6s ease-in-out infinite;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-space-blue);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-cosmic-purple);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neon-cyan);
+}
+
+.game-cursor {
+  cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cGF0aCBkPSJNMTYgMiBMMTYgMTIgTTE2IDIwIEwxNiAzMCBNMiAxNiBMMTIgMTYgTTIwIDE2IEwzMCAxNiIgc3Ryb2tlPSIjMDBEOUZGIiBzdHJva2Utd2lkdGg9IjIiLz48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIyIiBmaWxsPSIjRkYxNDkzIi8+PC9zdmc+') 16 16, crosshair;
+}
+
+.game-cursor a, .game-cursor button {
+  cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxMCIgc3Ryb2tlPSIjMDBEOUZGIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIyIiBmaWxsPSIjRkYxNDkzIi8+PC9zdmc+') 16 16, pointer !important;
+}
+
+.snap-container {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.snap-section::-webkit-scrollbar {
+  display: none;
+}
+.snap-section {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
